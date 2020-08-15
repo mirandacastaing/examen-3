@@ -1,0 +1,24 @@
+scalar Date
+
+type Movie {
+	id: ID!,
+	title: String,
+	budget: Float,
+	runtime: Float,
+	language: String,
+	release: String
+}
+
+type Query {
+	movies:[Movie]
+	moviesWithCount(count: Int):[Movie]
+	moviesByTitleLike(title: String):[Movie]
+	moviesByYear(year: Int):[Movie]
+	movie(id: ID):Movie
+}
+
+type Mutation {
+	createMovie(title: String!, budget: Float!, runtime: Float!, language: String!, release: String!):Movie
+	updateMovie(id: ID!, title: String!, budget: Float!, runtime: Float!, language: String!, release: String!):Movie
+	deleteMovie(id: ID!):Movie
+}
